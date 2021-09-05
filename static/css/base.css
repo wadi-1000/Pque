@@ -1,3 +1,29 @@
 #nv{
-    background-color: #FFEF85;
+    background-color: #323e58;
+    
 }
+
+#txt{
+    color: white;
+    font-family: 'Yeseva One', cursive;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#intro{
+    color: rgb(100, 105, 110);
+    text-align: left;
+    margin-top: 80px;
+    font-family: 'Satisfy', cursive;
+    font-size: larger;
+
+}
+
+#btn{
+    color: whitesmoke;
+    border: 0.5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+

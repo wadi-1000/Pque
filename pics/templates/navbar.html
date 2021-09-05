@@ -7,11 +7,12 @@
 </head>
 <body>
     <nav class="navbar navbar-light " id="nv">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">PQUE</a>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+        <div class="container" >
+          <a class="navbar-brand" href="{% url 'home' %}" id="txt">PQUE</a>
+          <a class="navbar-brand" href="/admin" id="txt">Dashboard</a>
+          <form class="d-flex" action="{% url 'search_results' %}">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="font-style: italic;">
+           <a href="{% url 'home' %}"> <button class="btn" type="submit" id="btn">Search</button></a>
           </form>
         </div>
       </nav>    

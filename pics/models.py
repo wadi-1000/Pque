@@ -14,11 +14,7 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
 
-    @classmethod
-    def search_by_title(cls,search_term):
-        items = cls.objects.filter(title__icontains=search_term)
-        return items
-  
+   
 
 class Location(models.Model):
     name = models.CharField(max_length = 30)  
@@ -38,12 +34,12 @@ class Image(models.Model):
     photo = CloudinaryField('photo')
     name = models.CharField(max_length = 30)
     description = models.CharField(max_length = 80)
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
-    location = models.ForeignKey(Location, on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,null='True', blank=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null='True', blank=True)
     post_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.description
 
     def save_image(self):
         self.save()
@@ -57,27 +53,24 @@ class Image(models.Model):
 
     @classmethod
     def get_image_by_id(cls,id):
-        image = cls.objects.get(id=id)
+        image = cls.objects.get(id=id).all()
+        return image
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        image = cls.objects.filter(category__icontains=search_term).all()
         return image
 
-    @classmethod
-    def search_image(cls,category):
-        try:
-            searched = Category.objects.get(name = category)
-            images = Image.objects.filter(category = searched.id)
-            return images
-        except Exception:
-            return  "No images were found for that category"
-
-    @classmethod
-    def filter_by_location(cls,location):
-        searched = Location.objects.get(name = location)
-        images = Image.objects.filter(location = searched.id)
-        return images 
 
     @classmethod
     def display_all_images(cls):
         return cls.objects.all()
 
+    
+    @classmethod
+    def filter_by_location(cls,location):
+        searched = Location.objects.get(name = location)
+        images = Image.objects.filter(location = searched.id)
+        return images 
     class Meta:
         ordering = ['-post_date']   
