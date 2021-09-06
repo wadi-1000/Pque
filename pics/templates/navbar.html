@@ -11,7 +11,7 @@
           <a class="navbar-brand" href="{% url 'home' %}" id="txt">PQUE</a>
           <a class="navbar-brand" href="/admin" id="txt">Dashboard</a>
           <form class="d-flex" action="{% url 'search_results' %}">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="font-style: italic;">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="font-style: italic;" name="image">
            <a href="{% url 'home' %}"> <button class="btn" type="submit" id="btn">Search</button></a>
           </form>
         </div>

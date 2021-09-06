@@ -5,23 +5,25 @@
 {{block.super}}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" id="intro">
+        <div class="col-md-9" id="intro">
             <h1>Welcome to Pque where you can take a peek into my world with a pic.</h1>
         </div>
     </div>
 
-    <div class="col-md-4" id="landing">
+    <div class="col-md-3" id="landing">
         <img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9sYXJvaWRzJTIwcGhvdG9zfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
     </div>
 
 
 </div>
-
 <br><br><br><br>
+<h2>Below are some of my photos</h2>
+
 <div class="container">
-{% for image in images %}
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
+<div class="row row-cols-2 row-cols-md-2 g-4">
+    {% for image in images %}
+    <div class="col-md-6">
+        
       <div class="card">
         <img src="{{image.photo.url}}" class="card-img-top" alt="{{image.description}}">
         <div class="card-body">
@@ -38,12 +40,16 @@
         copyText.select();
         document.execCommand('copy')
         console.log('Copied Text')
+        alert('Image Link Copied to Clipboard.')
         }
         </script>
         </div>
       </div>
+      
     </div>
-{% endfor %}
+    {% endfor %}
+    </div>
+
 </div>
 {% endblock %}
 
