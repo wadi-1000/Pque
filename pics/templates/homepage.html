@@ -32,7 +32,7 @@
                 <div class="row photos">
                     {% for image in images %}
                     <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{image.photo.url}}" data-lightbox="photos"><img class="img-fluid" src="{{image.photo.url}}"></a>
-                        <h5 class="card-title">{{image.name}}</h5>
+                        <h6 class="card-title">{{image.name}}</h6>
                         <p class="card-text"> Description: {{image.description}}</p>
                         <p class="card-text">Category: {{image.category}}</p>
                         <p class="card-text">Taken in: {{image.location}}</p>
