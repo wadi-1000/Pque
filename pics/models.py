@@ -58,8 +58,18 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,category):
-        image = cls.objects.filter(category__name__icontains=category)
-        return image
+        images = cls.objects.filter(category__name__icontains=category)
+        return images
+    
+    def __str__(self):
+        return self.description
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
 
     @classmethod
     def display_all_images(cls):
