@@ -21,6 +21,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+
+
+   <!--lightbox-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+
+
+
   {% endblock %}
 
 
@@ -32,7 +41,66 @@
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  
      {% bootstrap_javascript %}
     {% endblock %}
+
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row row-cols-2 row-cols-md-2 g-4">
+      {% for image in images %}
+      <div class="col-md-6">
+          
+        <div class="card">
+          <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{image.photo.url}}" data-lightbox="photos"><img class="img-fluid" src="{{image.photo.url}}"></a></div>
+          
+  </div>
+  </div>
+  
+          <img src="{{image.photo.url}}" class="card-img-top" alt="{{image.description}}">
+          <div class="card-body">
+            <h5 class="card-title">{{image.name}}</h5>
+            <p class="card-text">{{image.description}}</p>
+            <p class="card-text">Category: {{image.category}}</p>
+            <p class="card-text">Taken in: {{image.location}}</p>
+            <!-- <input type="text" value="{{image.photo.url}}" id="myInput"> -->
+          <!-- <button onclick="Image()">Copy Image Link</button>
+  
+          <script>
+          function Image() {
+          var copyText = document.getElementById('myInput')
+          copyText.select();
+          document.execCommand('copy')
+          console.log('Copied Text')
+          alert('Image Link Copied to Clipboard.')
+          }
+          </script>
+          </div>
+        </div>
+        
+      </div>
+      {% endfor %} -->
+      <!-- </div> --> 
