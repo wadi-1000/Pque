@@ -36,20 +36,32 @@
                         <p class="card-text"> Description: {{image.description}}</p>
                         <p class="card-text">Category: {{image.category}}</p>
                         <p class="card-text">Taken in: {{image.location}}</p>
-                    <button onclick="Image()">Copy Image Link</button>
+                    <!-- The text field -->
+                    <input type="text" value="{{image.photo.url}}" id="myInput" style="display: none;">
+
+                    <!-- The button used to copy the text -->
+                    <button onclick="myFunction()">Copy Image Link</button>
+
+                    <script>
+                        function myFunction() {
+                        /* Get the text field */
+                        var copyText = document.getElementById("myInput");
+
+                        /* Select the text field */
+                        copyText.select();
+                        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                        /* Copy the text inside the text field */
+                        navigator.clipboard.writeText(copyText.value);
+
+                        /* Alert the copied text */
+                        alert("Link copied");
+                        }
+                    </script>
                     </div>
                     {% endfor %}            
         
 
-        <script>
-        function Image() {
-        var copyText = document.getElementById('myInput')
-        copyText.select();
-        document.execCommand('copy')
-        console.log('Copied Text')
-        alert('Image Link Copied to Clipboard.')
-        }
-        </script>
         </div>
       </div>
       
