@@ -9,7 +9,7 @@ def home(request):
 
 def search_results(request):           
     if 'imagesearch' in request.GET and request.GET["imagesearch"]:
-        category = request.GET.get("image")
+        category = request.GET.get("imagesearch")
         searched_images = Image.search_by_category(category)
         message = f"{category}"
         print("searched_results")
