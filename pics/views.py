@@ -12,7 +12,7 @@ def search_results(request):
         category = request.GET.get("imagesearch")
         searched_images = Image.search_by_category(category)
         message = f"{category}"
-        print("searched_results")
+        print("search_results")
         
         return render(request, 'all-pics/search.html',{"message":message,"images": searched_images})
 
