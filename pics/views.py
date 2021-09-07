@@ -7,7 +7,7 @@ def home(request):
     images = Image.objects.all()
     return render(request, 'homepage.html',{'images':images})
 
-def search_results(request):
+def search_results(request):           
     if 'imagesearch' in request.GET and request.GET["imagesearch"]:
         category = request.GET.get("image")
         searched_images = Image.search_by_category(category)
